@@ -13,30 +13,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.5.3</app.runtime>
+		<app.runtime>4.6</app.runtime>
 		<mule.maven.plugin.version>4.0.0</mule.maven.plugin.version>
 	</properties>
 
 	<build>
 		<plugins>
-			<plugin>
-			    <groupId>org.mule.tools.maven</groupId>
-			    <artifactId>mule-maven-plugin</artifactId>
-			    <version>3.3.5</version>
-			    <extensions>true</extensions>
-			    <configuration>
-			        <cloudHubDeployment>
-			            <uri>https://anypoint.mulesoft.com</uri>
-			            <muleVersion>4.2.2</muleVersion>
-			            <username>hamzambengue</username>
-			            <password>.A11SEP95.rich2672.AN</password>
-			            <applicationName>mule-ci-cd-demo</applicationName>
-			            <environment>Sandbox</environment>
-			            <workerType>MICRO</workerType>
-			            <objectStoreV2>true</objectStoreV2>
-			        </cloudHubDeployment>
-			    </configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -47,6 +29,26 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+			  <groupId>org.mule.tools.maven</groupId>
+			  <artifactId>mule-maven-plugin</artifactId>
+			  <version>4.1.1</version>
+			  <extensions>true</extensions>
+			  <configuration>
+			    <cloudHubDeployment>
+			      <uri>https://anypoint.mulesoft.com</uri>
+			      <muleVersion>4.6.1</muleVersion>
+			      <applicationName>mule-ci-cd-demo</applicationName>
+			      <connectedAppClientId>41cb51f4805a4bbfae02c754188ea922</connectedAppClientId>
+			      <connectedAppClientSecret>369a8EdBE76844aD9065514e943a7019</connectedAppClientSecret>
+				  <connectedAppGrantType>client_credentials</connectedAppGrantType>
+			      <environment>Sandbox</environment>
+			      <region>ca-central-1</region>
+			     <!-- <workers>1</workers>-->
+			      <workerType>MICRO</workerType>
+			    </cloudHubDeployment>
+			  </configuration>
 			</plugin>
 		</plugins>
 	</build>
